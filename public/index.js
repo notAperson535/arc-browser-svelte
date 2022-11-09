@@ -1,17 +1,16 @@
 const form = document.querySelectorAll("form");
 const input = document.querySelector("input");
 let iframe = document.getElementById("iframe");
-let urlbar = document.querySelector('#urlbar');
+let urlbar = document.querySelector('#urlbar input');
 
 form.forEach(item => {
   item.addEventListener("submit", async (event) => {
     event.preventDefault();
-
   });
 })
 
 function go(value) {
-  let iframe = document.querySelector(".iframe.active");
+  let iframe = document.querySelector("iframe.active");
   window.navigator.serviceWorker
     .register("./sw.js", {
       scope: __uv$config.prefix,
@@ -41,7 +40,7 @@ async function getIframeFavicon(value) {
 
 urlbar.onkeydown = function (event) {
   if (event.key === 'Enter') {
-    event.preventDefault
+    event.preventDefault();
     go(urlbar.value.replace("http://", "https://"));
   }
 }
