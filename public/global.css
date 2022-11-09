@@ -6,4 +6,22 @@ html {
 body {
 	height: 100%;
 	width: 100%;
+    margin: 0px;
+    padding: 0;
+}
+
+#sidebar{
+    width: 250px;
+    height: 100%;
+}
+
+.iframe{
+    position: absolute;
+    height: calc(100% - 20px);
+    width: calc(100% - 270px);
+    top: 10px;
+    left: 260px;
+    border: 0px;
+    outline: 0px;
+    border-radius: 10px;
 }
