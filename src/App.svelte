@@ -1,5 +1,6 @@
 <script>
   $: tabsandiframes = [{ id: 1, src: "https://bing.com" }];
+  let nextid = 1;
 
   function newTabAndIframe(id, src) {
     tabsandiframes.push({ id: id, src: src });
@@ -58,8 +59,6 @@
 {/each}
 
 <div id="scripts">
-  <script src="./index.js"></script>
-  <script src="./uv/uv.bundle.js"></script>
-  <script src="./uv/uv.config.js"></script>
-  <script src="tabs.js"></script>
+  <script src="uv/uv.bundle.js"></script>
+  <script src="index.js"></script>
 </div>
