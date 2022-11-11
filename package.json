@@ -20,8 +20,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "rollup -c -w",
-    "start": "rollup -c -w",
-    "start2": "node ."
+    "start": "node ."
   },
   "keywords": [
     "proxy"
