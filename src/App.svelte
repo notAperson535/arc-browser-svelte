@@ -1,10 +1,13 @@
 <script>
-  $: tabsandiframes = [1];
-  let nextid = 2;
+  $: tabsandiframes = [];
+  $: pinnedtabsandiframes = [];
+
+  let nextid = 4;
   var tabOrder = new Array();
 
-  function newTabAndIframe(id, src) {
-    tabsandiframes.push(id);
+  function newTabAndIframe() {
+    tabsandiframes.push(nextid);
+    nextid = nextid + 1;
     tabsandiframes = tabsandiframes;
   }
   function openTabAndIframe(id) {
@@ -33,6 +36,8 @@
     );
     var tabs = document.querySelectorAll(".tab");
     tabs.forEach((elmnt) => (elmnt.className = "tab"));
+    var pinnedtabs = document.querySelectorAll(".pinnedtab");
+    pinnedtabs.forEach((elmnt) => (elmnt.className = "pinnedtab"));
     if (iframe.src !== "") {
       iframe.style.display = "block";
     }
@@ -55,6 +60,10 @@
 
     tabsandiframes = tabsandiframes;
   }
+
+  function generatePinnedTabsAndIfranes() {
+    pinnedtabsandiframes = [1, 2, 3];
+  }
 </script>
 
 <div id="sidebar">
@@ -62,12 +71,24 @@
     <input />
   </form>
 
-  <div id="pinnedtabs"><div class="pinnedtab" /></div>
+  <div id="pinnedtabs">
+    {#each pinnedtabsandiframes as pinnedtabandiframe}
+      <div
+        id={"tab" + pinnedtabandiframe}
+        on:click={() => openTabAndIframe(pinnedtabandiframe)}
+        on:keypress={void 0}
+        class="pinnedtab"
+      >
+        <img alt="Tab Icon" src="img/tabfavicon.png" class="tabfavicon" />
+      </div>
+    {/each}
+  </div>
+
+  <div id="sidebarspacer" />
 
   <div
     id="newtabbutton"
-    on:click={() => newTabAndIframe(nextid)}
-    on:click={() => (nextid = nextid + 1)}
+    on:click={() => newTabAndIframe()}
     on:keypress={void 0}
   >
     <img alt="new tab" src="./img/newtab.png" />
@@ -81,7 +102,7 @@
       on:click={() => openTabAndIframe(tabandiframe)}
       on:keypress={void 0}
     >
-      <img alt="Tab Icon" src="" class="tabfavicon" />
+      <img alt="Tab Icon" src="img/tabfavicon.png" class="tabfavicon" />
       <p>Tab</p>
       <img
         on:click={() => closeTabAndIframe(tabandiframe)}
@@ -97,6 +118,10 @@
 
 <div id="thingbelowtheiframe" />
 
+{#each pinnedtabsandiframes as pinnedtabandiframe}
+  <iframe id={pinnedtabandiframe} title="iframe" />
+{/each}
+
 {#each tabsandiframes as tabandiframe}
   <iframe id={tabandiframe} title="iframe" />
 {/each}
@@ -105,4 +130,8 @@
   <script src="index.js"></script>
 </div>
 
-<svelte:window on:load={() => openTabAndIframe(1)} />
+<svelte:window
+  on:load={() => generatePinnedTabsAndIfranes()}
+  on:load={() => newTabAndIframe()}
+  on:load={() => openTabAndIframe(1)}
+/>

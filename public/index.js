@@ -34,7 +34,16 @@ function go(value) {
 
 async function getIframeFavicon(value) {
 
-  document.querySelector(".tab.active .tabfavicon").src = "https://s2.googleusercontent.com/s2/favicons?domain_url=" + value
+  if (
+    typeof document.querySelector(".tab.active") !== "undefined" &&
+    document.querySelector(".tab.active") !== null
+  ) {
+    document.querySelector(".tab.active .tabfavicon").src = "https://s2.googleusercontent.com/s2/favicons?domain_url=" + value
+  } else {
+    document.querySelector(".pinnedtab.active .tabfavicon").src = "https://s2.googleusercontent.com/s2/favicons?domain_url=" + value
+  }
+
+
 
 }
 
