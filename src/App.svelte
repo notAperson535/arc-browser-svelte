@@ -133,5 +133,5 @@
 <svelte:window
   on:load={() => generatePinnedTabsAndIfranes()}
   on:load={() => newTabAndIframe()}
-  on:load={() => openTabAndIframe(1)}
+  on:load={() => openTabAndIframe(4)}
 />

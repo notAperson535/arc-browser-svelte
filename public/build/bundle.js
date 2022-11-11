@@ -1017,7 +1017,7 @@ var app = (function () {
 
     	const load_handler = () => generatePinnedTabsAndIfranes();
     	const load_handler_1 = () => newTabAndIframe();
-    	const load_handler_2 = () => openTabAndIframe(1);
+    	const load_handler_2 = () => openTabAndIframe(4);
     	const click_handler = pinnedtabandiframe => openTabAndIframe(pinnedtabandiframe);
     	const click_handler_1 = () => newTabAndIframe();
     	const click_handler_2 = tabandiframe => closeTabAndIframe(tabandiframe);
