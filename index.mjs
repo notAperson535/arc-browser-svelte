@@ -26,5 +26,5 @@ if (cluster.isMaster) {
 		if (bare.route_upgrade(req, socket, head)) return;
 		socket.end();
 	});
-	server.listen(process.env.PORT || 8080, () => { console.log("Arc Browser running at http://localhost:80") });
+	server.listen(process.env.PORT || 8080, () => { console.log("Arc Browser running at http://localhost:8080") });
 }
