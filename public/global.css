@@ -35,25 +35,30 @@ body {
     height: 100%;
 }
 
-.tab {
+#newtabbutton {
+    color: #7d7c84;
+}
+
+.tab,
+#newtabbutton {
     display: flex;
     align-items: center;
     width: calc(100% - 20px);
     margin-left: 10px;
-    height: 50px;
+    height: 45px;
     border-radius: 10px;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: saturate(3) blur(20px);
 }
 
-.tabfavicon {
+.tabfavicon,
+#newtabbutton img {
     width: 17.5px;
     margin-right: 5px;
     border-radius: 17.5px;
     margin-left: 10px;
 }
 
-.tab p {
+.tab p,
+#newtabbutton p {
     margin: 0px;
     justify-self: baseline;
 }
@@ -62,6 +67,13 @@ body {
     margin-left: auto;
     width: 10px;
     margin-right: 10px;
+}
+
+.tab.active {
+    -webkit-box-shadow: 3px 3px 5px -4px rgba(119, 119, 119, 0.71);
+    box-shadow: 3px 3px 5px -4px rgba(119, 119, 119, 0.71);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: saturate(3) blur(20px);
 }
 
 iframe {

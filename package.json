@@ -1,27 +1,20 @@
 {
-  "name": "svelte-app",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "start": "node scripts/index.js"
-  },
-  "devDependencies": {
-    "@rollup/plugin-commonjs": "^17.0.0",
-    "@rollup/plugin-node-resolve": "^11.0.0",
-    "find-in-files": "^0.5.0",
-    "node-static": "^0.7.11",
-    "rollup": "^2.3.4",
-    "rollup-plugin-css-only": "^3.1.0",
-    "rollup-plugin-livereload": "^2.0.0",
-    "rollup-plugin-svelte": "^7.0.0",
-    "rollup-plugin-terser": "^7.0.0",
-    "svelte": "^3.0.0"
-  },
   "dependencies": {
+    "bare-server-node": "github:tomphttp/bare-server-node",
     "find-in-files": "^0.5.0",
-    "node-static": "^0.7.11",
-    "sirv-cli": "^2.0.0"
-  }
+    "node-static": "^0.7.11"
+  },
+  "name": "arc-browser",
+  "version": "1.0.0",
+  "description": "Arc Browser in Svelte",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
+  },
+  "keywords": [
+    "proxy"
+  ],
+  "author": "",
+  "license": "GPL-3.0-or-later"
 }

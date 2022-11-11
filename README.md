@@ -1,7 +1,5 @@
-first run `npm i`
+# Arc Browser
 
-then cd into `node_modules` and run
+Run:
 
-```
-npx degit notAperson535/arc-browser-svelte/node_modules/bare-server-node bare-server-node
-```
+Clone repository and run `npm i && npm start`.

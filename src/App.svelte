@@ -1,12 +1,12 @@
 <script>
-  $: tabsandiframes = [{ id: 1, src: "https://bing.com" }];
-  let nextid = 1;
+  $: tabsandiframes = [{ id: 1 }];
+  let nextid = 2;
 
   function newTabAndIframe(id, src) {
     tabsandiframes.push({ id: id, src: src });
     tabsandiframes = tabsandiframes;
   }
-  function openTabAndIframe(id) {
+  function openTabAndIframe(id, src, isactive) {
     var iframes = document.querySelectorAll("iframe");
     iframes.forEach((elmnt) => (elmnt.style.display = "none"));
     var iframe = document.getElementById(id);
@@ -30,19 +30,26 @@
     <input />
   </form>
 
+  <div id="pinnedtabs" />
+
+  <div
+    id="newtabbutton"
+    on:click={() => newTabAndIframe(nextid)}
+    on:click={() => (nextid = nextid + 1)}
+    on:keypress={void 0}
+  >
+    <img alt="new tab" src="./img/newtab.png" />
+    <p>New Tab</p>
+  </div>
+
   {#each tabsandiframes as tabandiframe}
     <div
       class="tab"
       id={"tab" + tabandiframe.id}
-      on:click={openTabAndIframe(tabandiframe.id)}
+      on:click={() => openTabAndIframe(tabandiframe.id)}
       on:keypress={void 0}
     >
-      <img
-        alt="Tab Icon"
-        src={"https://s2.googleusercontent.com/s2/favicons?domain_url=" +
-          tabandiframe.src}
-        class="tabfavicon"
-      />
+      <img alt="Tab Icon" src="" class="tabfavicon" />
       <p>Tab</p>
       <img
         alt="Close tab"
@@ -55,10 +62,11 @@
 </div>
 
 {#each tabsandiframes as tabandiframe}
-  <iframe id={tabandiframe.id} title="iframe" src={tabandiframe.src} />
+  <iframe id={tabandiframe.id} title="iframe" />
 {/each}
 
 <div id="scripts">
-  <script src="uv/uv.bundle.js"></script>
   <script src="index.js"></script>
 </div>
+
+<svelte:window on:load={() => openTabAndIframe(1)} />
