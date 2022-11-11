@@ -68,7 +68,7 @@
 
 <div id="sidebar">
   <form id="urlbar">
-    <input />
+    <input placeholder="Search or type a URL" />
   </form>
 
   <div id="pinnedtabs">
