@@ -1,14 +1,30 @@
 <script>
-  $: tabsandiframes = [{ id: 1 }];
+  $: tabsandiframes = [1];
   let nextid = 2;
+  var tabOrder = new Array();
 
   function newTabAndIframe(id, src) {
-    tabsandiframes.push({ id: id, src: src });
+    tabsandiframes.push(id);
     tabsandiframes = tabsandiframes;
   }
-  function openTabAndIframe(id, src, isactive) {
+  function openTabAndIframe(id) {
+    if (tabOrder.indexOf(id) > -1) {
+      tabOrder.splice(tabOrder.indexOf(id), 1);
+    }
+    tabOrder[tabOrder.length] = id;
+
+    if (
+      typeof document.querySelector("iframe.active") !== "undefined" &&
+      document.querySelector("iframe.active") !== null
+    ) {
+      document.querySelector("iframe.active").style.display = "none";
+      document.querySelector("iframe.active").classList.remove("active");
+    }
+
     var iframes = document.querySelectorAll("iframe");
-    iframes.forEach((elmnt) => (elmnt.style.display = "none"));
+    iframes.forEach((elmnt) => {
+      elmnt.style.display = "none";
+    });
     var iframe = document.getElementById(id);
     iframe.classList.add("active");
     var url = __uv$config.decodeUrl(iframe.src);
@@ -23,6 +39,22 @@
     var tab = document.getElementById("tab" + id);
     tab.className += " active";
   }
+  function closeTabAndIframe(id) {
+    // var tab = document.getElementById("tab" + id);
+    // var iframe = document.getElementById(id);
+    // tab.outerHTML = "";
+    // iframe.outerHTML = "";
+
+    const index = tabsandiframes.indexOf(id);
+    if (index > -1) {
+      tabsandiframes.splice(index, 1);
+    }
+
+    tabOrder.splice(tabOrder.indexOf(id), 1);
+    openTabAndIframe(tabOrder.slice(-1)[0]);
+
+    tabsandiframes = tabsandiframes;
+  }
 </script>
 
 <div id="sidebar">
@@ -30,7 +62,7 @@
     <input />
   </form>
 
-  <div id="pinnedtabs" />
+  <div id="pinnedtabs"><div class="pinnedtab" /></div>
 
   <div
     id="newtabbutton"
@@ -45,13 +77,15 @@
   {#each tabsandiframes as tabandiframe}
     <div
       class="tab"
-      id={"tab" + tabandiframe.id}
-      on:click={() => openTabAndIframe(tabandiframe.id)}
+      id={"tab" + tabandiframe}
+      on:click={() => openTabAndIframe(tabandiframe)}
       on:keypress={void 0}
     >
       <img alt="Tab Icon" src="" class="tabfavicon" />
       <p>Tab</p>
       <img
+        on:click={() => closeTabAndIframe(tabandiframe)}
+        on:keydown={void 0}
         alt="Close tab"
         src="img/closetab.png"
         class="invert tabclose"
@@ -61,8 +95,10 @@
   {/each}
 </div>
 
+<div id="thingbelowtheiframe" />
+
 {#each tabsandiframes as tabandiframe}
-  <iframe id={tabandiframe.id} title="iframe" />
+  <iframe id={tabandiframe} title="iframe" />
 {/each}
 
 <div id="scripts">

@@ -76,7 +76,8 @@ body {
     backdrop-filter: saturate(3) blur(20px);
 }
 
-iframe {
+iframe,
+#thingbelowtheiframe {
     position: absolute;
     height: calc(100% - 20px);
     width: calc(100% - 270px);
@@ -86,4 +87,11 @@ iframe {
     outline: 0px;
     border-radius: 10px;
     display: none;
+}
+
+#thingbelowtheiframe {
+    display: initial;
+    -webkit-box-shadow: 3px 3px 5px -4px rgba(119, 119, 119, 0.71);
+    box-shadow: 3px 3px 5px -4px rgba(119, 119, 119, 0.71);
+    background: rgba(255, 255, 255, 0.5);
 }
