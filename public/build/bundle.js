@@ -1,5 +1,5 @@
 
-(function(l, r) { if (!l || l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (self.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(self.document);
+//(function(l, r) { if (!l || l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (self.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(self.document);
 var app = (function () {
     'use strict';
 
@@ -55,17 +55,11 @@ var app = (function () {
     function element(name) {
         return document.createElement(name);
     }
-    function svg_element(name) {
-        return document.createElementNS('http://www.w3.org/2000/svg', name);
-    }
     function text(data) {
         return document.createTextNode(data);
     }
     function space() {
         return text(' ');
-    }
-    function empty() {
-        return text('');
     }
     function listen(node, event, handler, options) {
         node.addEventListener(event, handler, options);
@@ -84,44 +78,6 @@ var app = (function () {
         const e = document.createEvent('CustomEvent');
         e.initCustomEvent(type, bubbles, cancelable, detail);
         return e;
-    }
-    class HtmlTag {
-        constructor(is_svg = false) {
-            this.is_svg = false;
-            this.is_svg = is_svg;
-            this.e = this.n = null;
-        }
-        c(html) {
-            this.h(html);
-        }
-        m(html, target, anchor = null) {
-            if (!this.e) {
-                if (this.is_svg)
-                    this.e = svg_element(target.nodeName);
-                else
-                    this.e = element(target.nodeName);
-                this.t = target;
-                this.c(html);
-            }
-            this.i(anchor);
-        }
-        h(html) {
-            this.e.innerHTML = html;
-            this.n = Array.from(this.e.childNodes);
-        }
-        i(anchor) {
-            for (let i = 0; i < this.n.length; i += 1) {
-                insert(this.t, this.n[i], anchor);
-            }
-        }
-        p(html) {
-            this.d();
-            this.h(html);
-            this.i(this.a);
-        }
-        d() {
-            this.n.forEach(detach);
-        }
     }
 
     let current_component;
@@ -426,29 +382,29 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[18] = list[i];
+    	child_ctx[17] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[21] = list[i];
+    	child_ctx[20] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[18] = list[i];
+    	child_ctx[17] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_3(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[21] = list[i];
+    	child_ctx[20] = list[i];
     	return child_ctx;
     }
 
-    // (79:4) {#each pinnedtabsandiframes as pinnedtabandiframe}
+    // (77:4) {#each pinnedtabsandiframes as pinnedtabandiframe}
     function create_each_block_3(ctx) {
     	let div;
     	let img;
@@ -459,7 +415,7 @@ var app = (function () {
     	let dispose;
 
     	function click_handler() {
-    		return /*click_handler*/ ctx[11](/*pinnedtabandiframe*/ ctx[21]);
+    		return /*click_handler*/ ctx[10](/*pinnedtabandiframe*/ ctx[20]);
     	}
 
     	const block = {
@@ -470,10 +426,10 @@ var app = (function () {
     			attr_dev(img, "alt", "Tab Icon");
     			if (!src_url_equal(img.src, img_src_value = "img/tabfavicon.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "class", "tabfavicon");
-    			add_location(img, file, 85, 8, 2565);
-    			attr_dev(div, "id", div_id_value = "tab" + /*pinnedtabandiframe*/ ctx[21]);
+    			add_location(img, file, 83, 8, 2504);
+    			attr_dev(div, "id", div_id_value = "tab" + /*pinnedtabandiframe*/ ctx[20]);
     			attr_dev(div, "class", "pinnedtab");
-    			add_location(div, file, 79, 6, 2381);
+    			add_location(div, file, 77, 6, 2320);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -492,7 +448,7 @@ var app = (function () {
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
 
-    			if (dirty & /*pinnedtabsandiframes*/ 2 && div_id_value !== (div_id_value = "tab" + /*pinnedtabandiframe*/ ctx[21])) {
+    			if (dirty & /*pinnedtabsandiframes*/ 2 && div_id_value !== (div_id_value = "tab" + /*pinnedtabandiframe*/ ctx[20])) {
     				attr_dev(div, "id", div_id_value);
     			}
     		},
@@ -507,14 +463,14 @@ var app = (function () {
     		block,
     		id: create_each_block_3.name,
     		type: "each",
-    		source: "(79:4) {#each pinnedtabsandiframes as pinnedtabandiframe}",
+    		source: "(77:4) {#each pinnedtabsandiframes as pinnedtabandiframe}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (103:2) {#each tabsandiframes as tabandiframe}
+    // (101:2) {#each tabsandiframes as tabandiframe}
     function create_each_block_2(ctx) {
     	let div;
     	let img0;
@@ -530,11 +486,11 @@ var app = (function () {
     	let dispose;
 
     	function click_handler_3() {
-    		return /*click_handler_3*/ ctx[14](/*tabandiframe*/ ctx[18]);
+    		return /*click_handler_3*/ ctx[13](/*tabandiframe*/ ctx[17]);
     	}
 
     	function click_handler_4() {
-    		return /*click_handler_4*/ ctx[15](/*tabandiframe*/ ctx[18]);
+    		return /*click_handler_4*/ ctx[14](/*tabandiframe*/ ctx[17]);
     	}
 
     	const block = {
@@ -550,16 +506,16 @@ var app = (function () {
     			attr_dev(img0, "alt", "Tab Icon");
     			if (!src_url_equal(img0.src, img0_src_value = "img/tabfavicon.png")) attr_dev(img0, "src", img0_src_value);
     			attr_dev(img0, "class", "tabfavicon");
-    			add_location(img0, file, 109, 6, 3138);
-    			add_location(p, file, 110, 6, 3212);
+    			add_location(img0, file, 107, 6, 3077);
+    			add_location(p, file, 108, 6, 3151);
     			attr_dev(img1, "alt", "Close tab");
     			if (!src_url_equal(img1.src, img1_src_value = "img/closetab.png")) attr_dev(img1, "src", img1_src_value);
     			attr_dev(img1, "class", "invert tabclose");
     			attr_dev(img1, "listener", "true");
-    			add_location(img1, file, 111, 6, 3230);
+    			add_location(img1, file, 109, 6, 3169);
     			attr_dev(div, "class", "tab");
-    			attr_dev(div, "id", div_id_value = "tab" + /*tabandiframe*/ ctx[18]);
-    			add_location(div, file, 103, 4, 2984);
+    			attr_dev(div, "id", div_id_value = "tab" + /*tabandiframe*/ ctx[17]);
+    			add_location(div, file, 101, 4, 2923);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -584,7 +540,7 @@ var app = (function () {
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
 
-    			if (dirty & /*tabsandiframes*/ 4 && div_id_value !== (div_id_value = "tab" + /*tabandiframe*/ ctx[18])) {
+    			if (dirty & /*tabsandiframes*/ 4 && div_id_value !== (div_id_value = "tab" + /*tabandiframe*/ ctx[17])) {
     				attr_dev(div, "id", div_id_value);
     			}
     		},
@@ -599,14 +555,14 @@ var app = (function () {
     		block,
     		id: create_each_block_2.name,
     		type: "each",
-    		source: "(103:2) {#each tabsandiframes as tabandiframe}",
+    		source: "(101:2) {#each tabsandiframes as tabandiframe}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (126:0) {#each pinnedtabsandiframes as pinnedtabandiframe}
+    // (124:0) {#each pinnedtabsandiframes as pinnedtabandiframe}
     function create_each_block_1(ctx) {
     	let iframe;
     	let iframe_id_value;
@@ -614,15 +570,15 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			iframe = element("iframe");
-    			attr_dev(iframe, "id", iframe_id_value = /*pinnedtabandiframe*/ ctx[21]);
+    			attr_dev(iframe, "id", iframe_id_value = /*pinnedtabandiframe*/ ctx[20]);
     			attr_dev(iframe, "title", "iframe");
-    			add_location(iframe, file, 126, 2, 3571);
+    			add_location(iframe, file, 124, 2, 3510);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, iframe, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*pinnedtabsandiframes*/ 2 && iframe_id_value !== (iframe_id_value = /*pinnedtabandiframe*/ ctx[21])) {
+    			if (dirty & /*pinnedtabsandiframes*/ 2 && iframe_id_value !== (iframe_id_value = /*pinnedtabandiframe*/ ctx[20])) {
     				attr_dev(iframe, "id", iframe_id_value);
     			}
     		},
@@ -635,14 +591,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(126:0) {#each pinnedtabsandiframes as pinnedtabandiframe}",
+    		source: "(124:0) {#each pinnedtabsandiframes as pinnedtabandiframe}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (130:0) {#each tabsandiframes as tabandiframe}
+    // (128:0) {#each tabsandiframes as tabandiframe}
     function create_each_block(ctx) {
     	let iframe;
     	let iframe_id_value;
@@ -650,15 +606,15 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			iframe = element("iframe");
-    			attr_dev(iframe, "id", iframe_id_value = /*tabandiframe*/ ctx[18]);
+    			attr_dev(iframe, "id", iframe_id_value = /*tabandiframe*/ ctx[17]);
     			attr_dev(iframe, "title", "iframe");
-    			add_location(iframe, file, 130, 2, 3675);
+    			add_location(iframe, file, 128, 2, 3614);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, iframe, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*tabsandiframes*/ 4 && iframe_id_value !== (iframe_id_value = /*tabandiframe*/ ctx[18])) {
+    			if (dirty & /*tabsandiframes*/ 4 && iframe_id_value !== (iframe_id_value = /*tabandiframe*/ ctx[17])) {
     				attr_dev(iframe, "id", iframe_id_value);
     			}
     		},
@@ -671,7 +627,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(130:0) {#each tabsandiframes as tabandiframe}",
+    		source: "(128:0) {#each tabsandiframes as tabandiframe}",
     		ctx
     	});
 
@@ -698,8 +654,9 @@ var app = (function () {
     	let t7;
     	let t8;
     	let t9;
-    	let html_tag;
-    	let html_anchor;
+    	let div5;
+    	let script;
+    	let script_src_value;
     	let mounted;
     	let dispose;
     	let each_value_3 = /*pinnedtabsandiframes*/ ctx[1];
@@ -775,27 +732,29 @@ var app = (function () {
     			}
 
     			t9 = space();
-    			html_tag = new HtmlTag(false);
-    			html_anchor = empty();
+    			div5 = element("div");
+    			script = element("script");
     			attr_dev(input, "placeholder", "Search or type a URL");
-    			add_location(input, file, 74, 4, 2235);
+    			add_location(input, file, 72, 4, 2174);
     			attr_dev(form, "id", "urlbar");
-    			add_location(form, file, 73, 2, 2211);
+    			add_location(form, file, 71, 2, 2150);
     			attr_dev(div0, "id", "pinnedtabs");
-    			add_location(div0, file, 77, 2, 2296);
+    			add_location(div0, file, 75, 2, 2235);
     			attr_dev(div1, "id", "sidebarspacer");
-    			add_location(div1, file, 90, 2, 2674);
+    			add_location(div1, file, 88, 2, 2613);
     			attr_dev(img, "alt", "new tab");
     			if (!src_url_equal(img.src, img_src_value = "./img/newtab.png")) attr_dev(img, "src", img_src_value);
-    			add_location(img, file, 98, 4, 2860);
-    			add_location(p, file, 99, 4, 2910);
+    			add_location(img, file, 96, 4, 2799);
+    			add_location(p, file, 97, 4, 2849);
     			attr_dev(div2, "id", "newtabbutton");
-    			add_location(div2, file, 92, 2, 2706);
+    			add_location(div2, file, 90, 2, 2645);
     			attr_dev(div3, "id", "sidebar");
-    			add_location(div3, file, 72, 0, 2189);
+    			add_location(div3, file, 70, 0, 2128);
     			attr_dev(div4, "id", "thingbelowtheiframe");
-    			add_location(div4, file, 123, 0, 3481);
-    			html_tag.a = html_anchor;
+    			add_location(div4, file, 121, 0, 3420);
+    			if (!src_url_equal(script.src, script_src_value = "./index.js")) attr_dev(script, "src", script_src_value);
+    			add_location(script, file, 138, 2, 3827);
+    			add_location(div5, file, 137, 0, 3818);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -839,16 +798,16 @@ var app = (function () {
     			}
 
     			insert_dev(target, t9, anchor);
-    			html_tag.m(/*mainscript*/ ctx[3], target, anchor);
-    			insert_dev(target, html_anchor, anchor);
+    			insert_dev(target, div5, anchor);
+    			append_dev(div5, script);
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(window, "load", /*load_handler*/ ctx[8], false, false, false),
-    					listen_dev(window, "load", /*load_handler_1*/ ctx[9], false, false, false),
-    					listen_dev(window, "load", /*load_handler_2*/ ctx[10], false, false, false),
-    					listen_dev(div2, "click", /*click_handler_1*/ ctx[12], false, false, false),
-    					listen_dev(div2, "click", /*click_handler_2*/ ctx[13], false, false, false),
+    					listen_dev(window, "load", /*load_handler*/ ctx[7], false, false, false),
+    					listen_dev(window, "load", /*load_handler_1*/ ctx[8], false, false, false),
+    					listen_dev(window, "load", /*load_handler_2*/ ctx[9], false, false, false),
+    					listen_dev(div2, "click", /*click_handler_1*/ ctx[11], false, false, false),
+    					listen_dev(div2, "click", /*click_handler_2*/ ctx[12], false, false, false),
     					listen_dev(div2, "keypress", void 0, false, false, false)
     				];
 
@@ -856,7 +815,7 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*pinnedtabsandiframes, openTabAndIframe*/ 34) {
+    			if (dirty & /*pinnedtabsandiframes, openTabAndIframe*/ 18) {
     				each_value_3 = /*pinnedtabsandiframes*/ ctx[1];
     				validate_each_argument(each_value_3);
     				let i;
@@ -880,7 +839,7 @@ var app = (function () {
     				each_blocks_3.length = each_value_3.length;
     			}
 
-    			if (dirty & /*tabsandiframes, openTabAndIframe, closeTabAndIframe*/ 100) {
+    			if (dirty & /*tabsandiframes, openTabAndIframe, closeTabAndIframe*/ 52) {
     				each_value_2 = /*tabsandiframes*/ ctx[2];
     				validate_each_argument(each_value_2);
     				let i;
@@ -965,8 +924,7 @@ var app = (function () {
     			if (detaching) detach_dev(t8);
     			destroy_each(each_blocks, detaching);
     			if (detaching) detach_dev(t9);
-    			if (detaching) detach_dev(html_anchor);
-    			if (detaching) html_tag.d();
+    			if (detaching) detach_dev(div5);
     			mounted = false;
     			run_all(dispose);
     		}
@@ -988,7 +946,6 @@ var app = (function () {
     	let pinnedtabsandiframes;
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('App', slots, []);
-    	let mainscript = `<script src="./index.js"></\script>`;
     	let nextid = 4;
     	let newnextid = "";
     	var tabOrder = new Array();
@@ -1071,7 +1028,6 @@ var app = (function () {
     	const click_handler_4 = tabandiframe => openTabAndIframe(tabandiframe);
 
     	$$self.$capture_state = () => ({
-    		mainscript,
     		nextid,
     		newnextid,
     		tabOrder,
@@ -1084,7 +1040,6 @@ var app = (function () {
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ('mainscript' in $$props) $$invalidate(3, mainscript = $$props.mainscript);
     		if ('nextid' in $$props) nextid = $$props.nextid;
     		if ('newnextid' in $$props) $$invalidate(0, newnextid = $$props.newnextid);
     		if ('tabOrder' in $$props) tabOrder = $$props.tabOrder;
@@ -1103,7 +1058,6 @@ var app = (function () {
     		newnextid,
     		pinnedtabsandiframes,
     		tabsandiframes,
-    		mainscript,
     		newTabAndIframe,
     		openTabAndIframe,
     		closeTabAndIframe,
