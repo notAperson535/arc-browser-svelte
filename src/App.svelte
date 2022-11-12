@@ -2,13 +2,11 @@
   $: tabsandiframes = [];
   $: pinnedtabsandiframes = [];
 
+  let mainscript = `<script src="./index.js"></\script>`;
+
   let nextid = 4;
   let newnextid = "";
   var tabOrder = new Array();
-
-  function test(id) {
-    openTabAndIframe(id);
-  }
 
   function newTabAndIframe() {
     tabsandiframes.push(nextid);
@@ -133,9 +131,7 @@
   <iframe id={tabandiframe} title="iframe" />
 {/each}
 
-<div id="scripts">
-  <script src="./index.js"></script>
-</div>
+{@html mainscript}
 
 <svelte:window
   on:load={() => generatePinnedTabsAndIfranes()}
