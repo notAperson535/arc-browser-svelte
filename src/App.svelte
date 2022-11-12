@@ -7,8 +7,9 @@
 
   function newTabAndIframe() {
     tabsandiframes.push(nextid);
-    nextid = nextid + 1;
     tabsandiframes = tabsandiframes;
+    openTabAndIframe(nextid);
+    nextid = nextid + 1;
   }
   function openTabAndIframe(id) {
     if (tabOrder.indexOf(id) > -1) {
