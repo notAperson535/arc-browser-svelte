@@ -3,12 +3,18 @@
   $: pinnedtabsandiframes = [];
 
   let nextid = 4;
+  let newnextid = "";
   var tabOrder = new Array();
+
+  function test(id) {
+    openTabAndIframe(id);
+  }
 
   function newTabAndIframe() {
     tabsandiframes.push(nextid);
-    tabsandiframes = tabsandiframes;
+    newnextid = nextid;
     nextid = nextid + 1;
+    tabsandiframes = tabsandiframes;
   }
   function openTabAndIframe(id) {
     if (tabOrder.indexOf(id) > -1) {
@@ -89,6 +95,7 @@
   <div
     id="newtabbutton"
     on:click={() => newTabAndIframe()}
+    on:click={() => openTabAndIframe(newnextid)}
     on:keypress={void 0}
   >
     <img alt="new tab" src="./img/newtab.png" />
@@ -127,7 +134,7 @@
 {/each}
 
 <div id="scripts">
-  <script src="index.js"></script>
+  <script src="./index.js"></script>
 </div>
 
 <svelte:window
