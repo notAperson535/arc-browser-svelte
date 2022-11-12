@@ -8,7 +8,6 @@
   function newTabAndIframe() {
     tabsandiframes.push(nextid);
     tabsandiframes = tabsandiframes;
-    openTabAndIframe(nextid);
     nextid = nextid + 1;
   }
   function openTabAndIframe(id) {
