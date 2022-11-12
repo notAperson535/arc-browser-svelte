@@ -134,7 +134,3 @@
   on:load={() => newTabAndIframe()}
   on:load={() => openTabAndIframe(4)}
 />
-
-<div>
-  <script src="./index.js"></script>
-</div>
