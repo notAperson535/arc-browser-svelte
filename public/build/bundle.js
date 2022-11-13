@@ -436,10 +436,10 @@ var app = (function () {
 				attr_dev(img, "alt", "Tab Icon");
 				if (!src_url_equal(img.src, img_src_value = "img/tabfavicon.png")) attr_dev(img, "src", img_src_value);
 				attr_dev(img, "class", "tabfavicon");
-				add_location(img, file, 85, 8, 2540);
+				add_location(img, file, 85, 8, 2599);
 				attr_dev(div, "id", div_id_value = "tab" + /*pinnedtabandiframe*/ ctx[20]);
 				attr_dev(div, "class", "pinnedtab");
-				add_location(div, file, 79, 6, 2356);
+				add_location(div, file, 79, 6, 2415);
 			},
 			m: function mount(target, anchor) {
 				insert_dev(target, div, anchor);
@@ -458,7 +458,7 @@ var app = (function () {
 			p: function update(new_ctx, dirty) {
 				ctx = new_ctx;
 
-				if (dirty & /*pinnedtabsandiframes*/ 2 && div_id_value !== (div_id_value = "tab" + /*pinnedtabandiframe*/ ctx[20])) {
+				if (dirty & /*pinnedtabsandiframes*/ 4 && div_id_value !== (div_id_value = "tab" + /*pinnedtabandiframe*/ ctx[20])) {
 					attr_dev(div, "id", div_id_value);
 				}
 			},
@@ -516,16 +516,16 @@ var app = (function () {
 				attr_dev(img0, "alt", "Tab Icon");
 				if (!src_url_equal(img0.src, img0_src_value = "img/tabfavicon.png")) attr_dev(img0, "src", img0_src_value);
 				attr_dev(img0, "class", "tabfavicon");
-				add_location(img0, file, 109, 6, 3113);
-				add_location(p, file, 110, 6, 3187);
+				add_location(img0, file, 109, 6, 3172);
+				add_location(p, file, 110, 6, 3246);
 				attr_dev(img1, "alt", "Close tab");
 				if (!src_url_equal(img1.src, img1_src_value = "img/closetab.png")) attr_dev(img1, "src", img1_src_value);
 				attr_dev(img1, "class", "invert tabclose");
 				attr_dev(img1, "listener", "true");
-				add_location(img1, file, 111, 6, 3205);
+				add_location(img1, file, 111, 6, 3264);
 				attr_dev(div, "class", "tab");
 				attr_dev(div, "id", div_id_value = "tab" + /*tabandiframe*/ ctx[17]);
-				add_location(div, file, 103, 4, 2959);
+				add_location(div, file, 103, 4, 3018);
 			},
 			m: function mount(target, anchor) {
 				insert_dev(target, div, anchor);
@@ -550,7 +550,7 @@ var app = (function () {
 			p: function update(new_ctx, dirty) {
 				ctx = new_ctx;
 
-				if (dirty & /*tabsandiframes*/ 4 && div_id_value !== (div_id_value = "tab" + /*tabandiframe*/ ctx[17])) {
+				if (dirty & /*tabsandiframes*/ 1 && div_id_value !== (div_id_value = "tab" + /*tabandiframe*/ ctx[17])) {
 					attr_dev(div, "id", div_id_value);
 				}
 			},
@@ -582,13 +582,13 @@ var app = (function () {
 				iframe = element("iframe");
 				attr_dev(iframe, "id", iframe_id_value = /*pinnedtabandiframe*/ ctx[20]);
 				attr_dev(iframe, "title", "iframe");
-				add_location(iframe, file, 126, 2, 3546);
+				add_location(iframe, file, 126, 2, 3605);
 			},
 			m: function mount(target, anchor) {
 				insert_dev(target, iframe, anchor);
 			},
 			p: function update(ctx, dirty) {
-				if (dirty & /*pinnedtabsandiframes*/ 2 && iframe_id_value !== (iframe_id_value = /*pinnedtabandiframe*/ ctx[20])) {
+				if (dirty & /*pinnedtabsandiframes*/ 4 && iframe_id_value !== (iframe_id_value = /*pinnedtabandiframe*/ ctx[20])) {
 					attr_dev(iframe, "id", iframe_id_value);
 				}
 			},
@@ -618,13 +618,13 @@ var app = (function () {
 				iframe = element("iframe");
 				attr_dev(iframe, "id", iframe_id_value = /*tabandiframe*/ ctx[17]);
 				attr_dev(iframe, "title", "iframe");
-				add_location(iframe, file, 130, 2, 3650);
+				add_location(iframe, file, 130, 2, 3709);
 			},
 			m: function mount(target, anchor) {
 				insert_dev(target, iframe, anchor);
 			},
 			p: function update(ctx, dirty) {
-				if (dirty & /*tabsandiframes*/ 4 && iframe_id_value !== (iframe_id_value = /*tabandiframe*/ ctx[17])) {
+				if (dirty & /*tabsandiframes*/ 1 && iframe_id_value !== (iframe_id_value = /*tabandiframe*/ ctx[17])) {
 					attr_dev(iframe, "id", iframe_id_value);
 				}
 			},
@@ -666,7 +666,7 @@ var app = (function () {
 		let each3_anchor;
 		let mounted;
 		let dispose;
-		let each_value_3 = /*pinnedtabsandiframes*/ ctx[1];
+		let each_value_3 = /*pinnedtabsandiframes*/ ctx[2];
 		validate_each_argument(each_value_3);
 		let each_blocks_3 = [];
 
@@ -674,7 +674,7 @@ var app = (function () {
 			each_blocks_3[i] = create_each_block_3(get_each_context_3(ctx, each_value_3, i));
 		}
 
-		let each_value_2 = /*tabsandiframes*/ ctx[2];
+		let each_value_2 = /*tabsandiframes*/ ctx[0];
 		validate_each_argument(each_value_2);
 		let each_blocks_2 = [];
 
@@ -682,7 +682,7 @@ var app = (function () {
 			each_blocks_2[i] = create_each_block_2(get_each_context_2(ctx, each_value_2, i));
 		}
 
-		let each_value_1 = /*pinnedtabsandiframes*/ ctx[1];
+		let each_value_1 = /*pinnedtabsandiframes*/ ctx[2];
 		validate_each_argument(each_value_1);
 		let each_blocks_1 = [];
 
@@ -690,7 +690,7 @@ var app = (function () {
 			each_blocks_1[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
 		}
 
-		let each_value = /*tabsandiframes*/ ctx[2];
+		let each_value = /*tabsandiframes*/ ctx[0];
 		validate_each_argument(each_value);
 		let each_blocks = [];
 
@@ -740,23 +740,23 @@ var app = (function () {
 
 				each3_anchor = empty();
 				attr_dev(input, "placeholder", "Search or type a URL");
-				add_location(input, file, 74, 4, 2210);
+				add_location(input, file, 74, 4, 2269);
 				attr_dev(form, "id", "urlbar");
-				add_location(form, file, 73, 2, 2186);
+				add_location(form, file, 73, 2, 2245);
 				attr_dev(div0, "id", "pinnedtabs");
-				add_location(div0, file, 77, 2, 2271);
+				add_location(div0, file, 77, 2, 2330);
 				attr_dev(div1, "id", "sidebarspacer");
-				add_location(div1, file, 90, 2, 2649);
+				add_location(div1, file, 90, 2, 2708);
 				attr_dev(img, "alt", "new tab");
 				if (!src_url_equal(img.src, img_src_value = "./img/newtab.png")) attr_dev(img, "src", img_src_value);
-				add_location(img, file, 98, 4, 2835);
-				add_location(p, file, 99, 4, 2885);
+				add_location(img, file, 98, 4, 2894);
+				add_location(p, file, 99, 4, 2944);
 				attr_dev(div2, "id", "newtabbutton");
-				add_location(div2, file, 92, 2, 2681);
+				add_location(div2, file, 92, 2, 2740);
 				attr_dev(div3, "id", "sidebar");
-				add_location(div3, file, 72, 0, 2164);
+				add_location(div3, file, 72, 0, 2223);
 				attr_dev(div4, "id", "thingbelowtheiframe");
-				add_location(div4, file, 123, 0, 3456);
+				add_location(div4, file, 123, 0, 3515);
 			},
 			l: function claim(nodes) {
 				throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -815,8 +815,8 @@ var app = (function () {
 				}
 			},
 			p: function update(ctx, [dirty]) {
-				if (dirty & /*pinnedtabsandiframes, openTabAndIframe*/ 18) {
-					each_value_3 = /*pinnedtabsandiframes*/ ctx[1];
+				if (dirty & /*pinnedtabsandiframes, openTabAndIframe*/ 20) {
+					each_value_3 = /*pinnedtabsandiframes*/ ctx[2];
 					validate_each_argument(each_value_3);
 					let i;
 
@@ -839,8 +839,8 @@ var app = (function () {
 					each_blocks_3.length = each_value_3.length;
 				}
 
-				if (dirty & /*tabsandiframes, openTabAndIframe, closeTabAndIframe*/ 52) {
-					each_value_2 = /*tabsandiframes*/ ctx[2];
+				if (dirty & /*tabsandiframes, openTabAndIframe, closeTabAndIframe*/ 49) {
+					each_value_2 = /*tabsandiframes*/ ctx[0];
 					validate_each_argument(each_value_2);
 					let i;
 
@@ -863,8 +863,8 @@ var app = (function () {
 					each_blocks_2.length = each_value_2.length;
 				}
 
-				if (dirty & /*pinnedtabsandiframes*/ 2) {
-					each_value_1 = /*pinnedtabsandiframes*/ ctx[1];
+				if (dirty & /*pinnedtabsandiframes*/ 4) {
+					each_value_1 = /*pinnedtabsandiframes*/ ctx[2];
 					validate_each_argument(each_value_1);
 					let i;
 
@@ -887,8 +887,8 @@ var app = (function () {
 					each_blocks_1.length = each_value_1.length;
 				}
 
-				if (dirty & /*tabsandiframes*/ 4) {
-					each_value = /*tabsandiframes*/ ctx[2];
+				if (dirty & /*tabsandiframes*/ 1) {
+					each_value = /*tabsandiframes*/ ctx[0];
 					validate_each_argument(each_value);
 					let i;
 
@@ -950,10 +950,11 @@ var app = (function () {
 		var tabOrder = new Array();
 
 		function newTabAndIframe() {
-			tabsandiframes.push(nextid);
-			$$invalidate(0, newnextid = nextid);
+			$$invalidate(1, newnextid = nextid);
+			let newtabsandiframes = [...tabsandiframes, newnextid];
+			$$invalidate(0, tabsandiframes = newtabsandiframes);
 			nextid = nextid + 1;
-			$$invalidate(2, tabsandiframes);
+			$$invalidate(0, tabsandiframes);
 		}
 
 		function openTabAndIframe(id) {
@@ -992,24 +993,20 @@ var app = (function () {
 		}
 
 		function closeTabAndIframe(id) {
-			var tab = document.getElementById("tab" + id);
-			var iframe = document.getElementById(id);
-			tab.outerHTML = "";
-			iframe.outerHTML = "";
-			const index = tabsandiframes.indexOf(id);
+			// var tab = document.getElementById("tab" + id);
+			// var iframe = document.getElementById(id);
+			// tab.outerHTML = "";
+			// iframe.outerHTML = "";
+			console.log(tabsandiframes.indexOf(id));
 
-			if (index > -1) {
-				tabsandiframes.splice(index, 1);
-			}
-
-			console.log(id);
-			$$invalidate(2, tabsandiframes = tabsandiframes.filter(t => t !== id));
+			tabsandiframes.splice(tabsandiframes.indexOf(id), 1);
+			$$invalidate(0, tabsandiframes);
 			tabOrder.splice(tabOrder.indexOf(id), 1);
 			openTabAndIframe(tabOrder.slice(-1)[0]);
 		}
 
 		function generatePinnedTabsAndIfranes() {
-			$$invalidate(1, pinnedtabsandiframes = [1, 2, 3]);
+			$$invalidate(2, pinnedtabsandiframes = [1, 2, 3]);
 		}
 
 		const writable_props = [];
@@ -1041,23 +1038,29 @@ var app = (function () {
 
 		$$self.$inject_state = $$props => {
 			if ('nextid' in $$props) nextid = $$props.nextid;
-			if ('newnextid' in $$props) $$invalidate(0, newnextid = $$props.newnextid);
+			if ('newnextid' in $$props) $$invalidate(1, newnextid = $$props.newnextid);
 			if ('tabOrder' in $$props) tabOrder = $$props.tabOrder;
-			if ('pinnedtabsandiframes' in $$props) $$invalidate(1, pinnedtabsandiframes = $$props.pinnedtabsandiframes);
-			if ('tabsandiframes' in $$props) $$invalidate(2, tabsandiframes = $$props.tabsandiframes);
+			if ('pinnedtabsandiframes' in $$props) $$invalidate(2, pinnedtabsandiframes = $$props.pinnedtabsandiframes);
+			if ('tabsandiframes' in $$props) $$invalidate(0, tabsandiframes = $$props.tabsandiframes);
 		};
 
 		if ($$props && "$$inject" in $$props) {
 			$$self.$inject_state($$props.$$inject);
 		}
 
-		$$invalidate(2, tabsandiframes = []);
-		$$invalidate(1, pinnedtabsandiframes = []);
+		$$self.$$.update = () => {
+			if ($$self.$$.dirty & /*tabsandiframes*/ 1) {
+				console.log(tabsandiframes);
+			}
+		};
+
+		$$invalidate(0, tabsandiframes = []);
+		$$invalidate(2, pinnedtabsandiframes = []);
 
 		return [
+			tabsandiframes,
 			newnextid,
 			pinnedtabsandiframes,
-			tabsandiframes,
 			newTabAndIframe,
 			openTabAndIframe,
 			closeTabAndIframe,

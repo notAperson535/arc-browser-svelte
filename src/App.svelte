@@ -2,13 +2,17 @@
   $: tabsandiframes = [];
   $: pinnedtabsandiframes = [];
 
+  $: console.log(tabsandiframes);
+
   let nextid = 4;
   let newnextid = "";
   var tabOrder = new Array();
 
   function newTabAndIframe() {
-    tabsandiframes.push(nextid);
     newnextid = nextid;
+    let newtabsandiframes = [...tabsandiframes, newnextid];
+
+    tabsandiframes = newtabsandiframes;
     nextid = nextid + 1;
     tabsandiframes = tabsandiframes;
   }
@@ -47,19 +51,15 @@
     tab.className += " active";
   }
   function closeTabAndIframe(id) {
-    var tab = document.getElementById("tab" + id);
-    var iframe = document.getElementById(id);
-    tab.outerHTML = "";
-    iframe.outerHTML = "";
+    // var tab = document.getElementById("tab" + id);
+    // var iframe = document.getElementById(id);
+    // tab.outerHTML = "";
+    // iframe.outerHTML = "";
 
-    const index = tabsandiframes.indexOf(id);
-    if (index > -1) {
-      tabsandiframes.splice(index, 1);
-    }
+    console.log(tabsandiframes.indexOf(id));
+    tabsandiframes.splice(tabsandiframes.indexOf(id), 1);
 
-    console.log(id);
-
-    tabsandiframes = tabsandiframes.filter((t) => t !== id);
+    tabsandiframes = tabsandiframes;
 
     tabOrder.splice(tabOrder.indexOf(id), 1);
     openTabAndIframe(tabOrder.slice(-1)[0]);
