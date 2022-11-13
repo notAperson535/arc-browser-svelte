@@ -47,20 +47,22 @@
     tab.className += " active";
   }
   function closeTabAndIframe(id) {
-    // var tab = document.getElementById("tab" + id);
-    // var iframe = document.getElementById(id);
-    // tab.outerHTML = "";
-    // iframe.outerHTML = "";
+    var tab = document.getElementById("tab" + id);
+    var iframe = document.getElementById(id);
+    tab.outerHTML = "";
+    iframe.outerHTML = "";
 
     const index = tabsandiframes.indexOf(id);
     if (index > -1) {
       tabsandiframes.splice(index, 1);
     }
 
+    console.log(id);
+
+    tabsandiframes = tabsandiframes.filter((t) => t !== id);
+
     tabOrder.splice(tabOrder.indexOf(id), 1);
     openTabAndIframe(tabOrder.slice(-1)[0]);
-
-    tabsandiframes = tabsandiframes;
   }
 
   function generatePinnedTabsAndIfranes() {
