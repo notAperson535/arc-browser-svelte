@@ -446,10 +446,10 @@ var app = (function () {
     			attr_dev(img, "alt", "Tab Icon");
     			if (!src_url_equal(img.src, img_src_value = "img/tabfavicon.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "class", "tabfavicon");
-    			add_location(img, file, 137, 8, 4399);
+    			add_location(img, file, 137, 8, 4245);
     			attr_dev(div, "id", div_id_value = "tab" + /*pinnedtabandiframe*/ ctx[29]);
     			attr_dev(div, "class", "pinnedtab");
-    			add_location(div, file, 131, 6, 4221);
+    			add_location(div, file, 131, 6, 4067);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -526,16 +526,16 @@ var app = (function () {
     			attr_dev(img0, "alt", "Tab Icon");
     			if (!src_url_equal(img0.src, img0_src_value = "img/tabfavicon.png")) attr_dev(img0, "src", img0_src_value);
     			attr_dev(img0, "class", "tabfavicon");
-    			add_location(img0, file, 162, 6, 5004);
-    			add_location(p, file, 163, 6, 5077);
+    			add_location(img0, file, 162, 6, 4850);
+    			add_location(p, file, 163, 6, 4923);
     			attr_dev(img1, "alt", "Close tab");
     			if (!src_url_equal(img1.src, img1_src_value = "img/closetab.png")) attr_dev(img1, "src", img1_src_value);
     			attr_dev(img1, "class", "invert tabclose");
     			attr_dev(img1, "listener", "true");
-    			add_location(img1, file, 164, 6, 5094);
+    			add_location(img1, file, 164, 6, 4940);
     			attr_dev(div, "class", "tab");
     			attr_dev(div, "id", div_id_value = "tab" + /*tabandiframe*/ ctx[26]);
-    			add_location(div, file, 156, 4, 4856);
+    			add_location(div, file, 156, 4, 4702);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -592,7 +592,7 @@ var app = (function () {
     			iframe = element("iframe");
     			attr_dev(iframe, "id", iframe_id_value = /*pinnedtabandiframe*/ ctx[29]);
     			attr_dev(iframe, "title", "iframe");
-    			add_location(iframe, file, 204, 2, 6095);
+    			add_location(iframe, file, 204, 2, 5941);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, iframe, anchor);
@@ -628,7 +628,7 @@ var app = (function () {
     			iframe = element("iframe");
     			attr_dev(iframe, "id", iframe_id_value = /*tabandiframe*/ ctx[26]);
     			attr_dev(iframe, "title", "iframe");
-    			add_location(iframe, file, 208, 2, 6195);
+    			add_location(iframe, file, 208, 2, 6041);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, iframe, anchor);
@@ -769,36 +769,36 @@ var app = (function () {
 
     			each3_anchor = empty();
     			attr_dev(input0, "placeholder", "Search or type a URL");
-    			add_location(input0, file, 126, 4, 4051);
+    			add_location(input0, file, 126, 4, 3897);
     			attr_dev(form0, "id", "urlbar");
-    			add_location(form0, file, 125, 2, 3975);
+    			add_location(form0, file, 125, 2, 3821);
     			attr_dev(div0, "id", "pinnedtabs");
-    			add_location(div0, file, 129, 2, 4138);
+    			add_location(div0, file, 129, 2, 3984);
     			attr_dev(div1, "id", "sidebarspacer");
-    			add_location(div1, file, 142, 2, 4503);
+    			add_location(div1, file, 142, 2, 4349);
     			attr_dev(img0, "alt", "new tab");
     			if (!src_url_equal(img0.src, img0_src_value = "./img/newtab.png")) attr_dev(img0, "src", img0_src_value);
-    			add_location(img0, file, 151, 4, 4737);
-    			add_location(p, file, 152, 4, 4786);
+    			add_location(img0, file, 151, 4, 4583);
+    			add_location(p, file, 152, 4, 4632);
     			attr_dev(div2, "id", "newtabbutton");
-    			add_location(div2, file, 144, 2, 4533);
+    			add_location(div2, file, 144, 2, 4379);
     			attr_dev(div3, "id", "sidebar");
-    			add_location(div3, file, 124, 0, 3954);
+    			add_location(div3, file, 124, 0, 3800);
     			attr_dev(div4, "id", "newtaburlbarbg");
-    			add_location(div4, file, 177, 2, 5361);
+    			add_location(div4, file, 177, 2, 5207);
     			if (!src_url_equal(img1.src, img1_src_value = "img/search.png")) attr_dev(img1, "src", img1_src_value);
     			attr_dev(img1, "alt", "Search");
-    			add_location(img1, file, 192, 6, 5830);
+    			add_location(img1, file, 192, 6, 5676);
     			attr_dev(input1, "placeholder", "Search or Enter URL...");
-    			add_location(input1, file, 193, 6, 5878);
+    			add_location(input1, file, 193, 6, 5724);
     			attr_dev(div5, "id", "newtaburlbardiv");
-    			add_location(div5, file, 191, 4, 5797);
+    			add_location(div5, file, 191, 4, 5643);
     			attr_dev(form1, "id", "newtaburlbar");
-    			add_location(form1, file, 183, 2, 5516);
+    			add_location(form1, file, 183, 2, 5362);
     			attr_dev(div6, "id", "commandpalette");
-    			add_location(div6, file, 176, 0, 5333);
+    			add_location(div6, file, 176, 0, 5179);
     			attr_dev(div7, "id", "thingbelowtheiframe");
-    			add_location(div7, file, 201, 0, 6008);
+    			add_location(div7, file, 201, 0, 5854);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1037,17 +1037,16 @@ var app = (function () {
     			if (!isUrl(url)) url = "https://www.google.com/search?q=" + url; else if (!(url.startsWith("https://") || url.startsWith("http://"))) url = "https://" + url;
     			iframe.style.display = "block";
     			iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
-
-    			//var iframeurl = __uv$config.decodeUrl(iframe.src)
     			var iframeurl = iframe.src.substring(iframe.src.indexOf("/service/") + 9);
+    			iframeurl = __uv$config.decodeUrl(iframeurl);
+    			getIframeFavicon(iframeurl);
 
-    			//document.querySelector("#urlbartop input").value = iframeurl.substring(iframeurl.indexOf("/service/") + 0);
-    			$$invalidate(1, topsearchbarurl = __uv$config.decodeUrl(iframeurl));
+    			if (iframeurl.includes("?q=")) {
+    				iframeurl = iframeurl.substring(iframeurl.indexOf("?q=") + 3);
+    			}
 
-    			$$invalidate(2, newtabsearchbarurl = __uv$config.decodeUrl(iframeurl));
-
-    			//getIframeFavicon(iframeurl.substring(iframeurl.indexOf("/service/") + 0))
-    			getIframeFavicon(__uv$config.decodeUrl(iframeurl));
+    			$$invalidate(1, topsearchbarurl = iframeurl);
+    			$$invalidate(2, newtabsearchbarurl = iframeurl);
     		});
 
     		function isUrl(val = "") {

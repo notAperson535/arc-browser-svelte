@@ -175,7 +175,7 @@ body {
     border: none;
     outline: none;
     font-size: 1.25rem;
-    width: 90%;
+    width: calc(90% - 10px);
     margin-right: 10px;
 }
 

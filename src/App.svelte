@@ -24,16 +24,16 @@
           url = "https://" + url;
         iframe.style.display = "block";
         iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
-        //var iframeurl = __uv$config.decodeUrl(iframe.src)
         var iframeurl = iframe.src.substring(
           iframe.src.indexOf("/service/") + 9
         );
-        //document.querySelector("#urlbartop input").value = iframeurl.substring(iframeurl.indexOf("/service/") + 0);
-        topsearchbarurl = __uv$config.decodeUrl(iframeurl);
-        newtabsearchbarurl = __uv$config.decodeUrl(iframeurl);
-
-        //getIframeFavicon(iframeurl.substring(iframeurl.indexOf("/service/") + 0))
-        getIframeFavicon(__uv$config.decodeUrl(iframeurl));
+        iframeurl = __uv$config.decodeUrl(iframeurl);
+        getIframeFavicon(iframeurl);
+        if (iframeurl.includes("?q=")) {
+          iframeurl = iframeurl.substring(iframeurl.indexOf("?q=") + 3);
+        }
+        topsearchbarurl = iframeurl;
+        newtabsearchbarurl = iframeurl;
       });
 
     function isUrl(val = "") {
