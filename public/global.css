@@ -120,6 +120,69 @@ body {
     justify-self: baseline;
 }
 
+#commandpalette {
+    z-index: 999;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#newtaburlbarbg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+#newtaburlbar {
+    z-index: 9999;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 75%;
+    height: 50%;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px) saturate(1);
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+#newtaburlbardiv {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: solid 2px rgba(210, 208, 230, 0.6);
+}
+
+#newtaburlbardiv>img {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0px 10px;
+}
+
+#newtaburlbardiv>input {
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 1.25rem;
+    width: 90%;
+    margin-right: 10px;
+}
+
+#newtaburlbardiv>input::placeholder {
+    color: #c3c4c6;
+}
+
 .tabclose {
     margin-left: auto;
     width: 10px;

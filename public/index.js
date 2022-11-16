@@ -43,8 +43,6 @@ async function getIframeFavicon(value) {
     document.querySelector(".pinnedtab.active .tabfavicon").src = "https://s2.googleusercontent.com/s2/favicons?domain_url=" + value
   }
 
-
-
 }
 
 urlbar.onkeydown = function (event) {
@@ -53,6 +51,20 @@ urlbar.onkeydown = function (event) {
     go(urlbar.value.replace("http://", "https://"));
   }
 }
+
+newtaburlbar.onkeydown = function (event) {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    document.querySelector("#newtaburlbar").style.display = "none";
+    go(newtaburlbar.value.replace("http://", "https://"));
+  }
+}
+
+window.addEventListener('mouseup', function (e) {
+  if (!event.target.closest("#newtaburlbar") && !event.target.closest("#newtaburlbar input")) {
+    document.querySelector("#newtaburlbar").style.display = "none"
+  }
+});
 
 
 function isUrl(val = "") {

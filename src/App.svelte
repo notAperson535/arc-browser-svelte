@@ -2,20 +2,71 @@
   $: tabsandiframes = [];
   $: pinnedtabsandiframes = [];
 
-  $: console.log(tabsandiframes);
-
   let nextid = 4;
   let newnextid = "";
   var tabOrder = new Array();
 
-  function newTabAndIframe() {
+  $: console.log(newnextid);
+
+  let topsearchbarurl = "";
+  let newtabsearchbarurl = "";
+
+  function go(value) {
+    let iframe = document.querySelector("iframe.active");
+    window.navigator.serviceWorker
+      .register("./sw.js", {
+        scope: __uv$config.prefix,
+      })
+      .then(() => {
+        let url = value.trim();
+        if (!isUrl(url)) url = "https://www.google.com/search?q=" + url;
+        else if (!(url.startsWith("https://") || url.startsWith("http://")))
+          url = "https://" + url;
+        iframe.style.display = "block";
+        iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
+        //var iframeurl = __uv$config.decodeUrl(iframe.src)
+        var iframeurl = iframe.src.substring(
+          iframe.src.indexOf("/service/") + 9
+        );
+        //document.querySelector("#urlbartop input").value = iframeurl.substring(iframeurl.indexOf("/service/") + 0);
+        topsearchbarurl = __uv$config.decodeUrl(iframeurl);
+        newtabsearchbarurl = __uv$config.decodeUrl(iframeurl);
+
+        //getIframeFavicon(iframeurl.substring(iframeurl.indexOf("/service/") + 0))
+        getIframeFavicon(__uv$config.decodeUrl(iframeurl));
+      });
+
+    function isUrl(val = "") {
+      if (
+        /^http(s?):\/\//.test(val) ||
+        (val.includes(".") && val.substr(0, 1) !== " ")
+      )
+        return true;
+      return false;
+    }
+  }
+
+  async function getIframeFavicon(value) {
+    if (
+      typeof document.querySelector(".tab.active") !== "undefined" &&
+      document.querySelector(".tab.active") !== null
+    ) {
+      document.querySelector(".tab.active .tabfavicon").src =
+        "https://s2.googleusercontent.com/s2/favicons?domain_url=" + value;
+    } else {
+      document.querySelector(".pinnedtab.active .tabfavicon").src =
+        "https://s2.googleusercontent.com/s2/favicons?domain_url=" + value;
+    }
+  }
+
+  function newTabAndIframe(url) {
     newnextid = nextid;
     let newtabsandiframes = [...tabsandiframes, newnextid];
 
     tabsandiframes = newtabsandiframes;
     nextid = nextid + 1;
-    tabsandiframes = tabsandiframes;
   }
+
   function openTabAndIframe(id) {
     if (tabOrder.indexOf(id) > -1) {
       tabOrder.splice(tabOrder.indexOf(id), 1);
@@ -50,6 +101,7 @@
     var tab = document.getElementById("tab" + id);
     tab.className += " active";
   }
+
   function closeTabAndIframe(id) {
     // var tab = document.getElementById("tab" + id);
     // var iframe = document.getElementById(id);
@@ -71,8 +123,8 @@
 </script>
 
 <div id="sidebar">
-  <form id="urlbar">
-    <input placeholder="Search or type a URL" />
+  <form on:submit|preventDefault={() => go(topsearchbarurl)} id="urlbar">
+    <input bind:value={topsearchbarurl} placeholder="Search or type a URL" />
   </form>
 
   <div id="pinnedtabs">
@@ -92,8 +144,9 @@
 
   <div
     id="newtabbutton"
-    on:click={() => newTabAndIframe()}
-    on:click={() => openTabAndIframe(newnextid)}
+    on:click={() =>
+      (document.querySelector("#commandpalette").style.display = "initial")}
+    on:click={() => (newtabsearchbarurl = "")}
     on:keypress={void 0}
   >
     <img alt="new tab" src="./img/newtab.png" />
@@ -121,6 +174,31 @@
   {/each}
 </div>
 
+<div id="commandpalette">
+  <div
+    on:keypress={void 0}
+    on:click={() =>
+      (document.querySelector("#commandpalette").style.display = "none")}
+    id="newtaburlbarbg"
+  />
+  <form
+    on:submit|preventDefault={() => newTabAndIframe()}
+    on:submit={() =>
+      (document.querySelector("#commandpalette").style.display = "none")}
+    on:submit={() => openTabAndIframe(newnextid)}
+    on:submit={() => go(newtabsearchbarurl)}
+    id="newtaburlbar"
+  >
+    <div id="newtaburlbardiv">
+      <img src="img/search.png" alt="Search" />
+      <input
+        placeholder="Search or Enter URL..."
+        bind:value={newtabsearchbarurl}
+      />
+    </div>
+  </form>
+</div>
+
 <div id="thingbelowtheiframe" />
 
 {#each pinnedtabsandiframes as pinnedtabandiframe}
@@ -131,8 +209,4 @@
   <iframe id={tabandiframe} title="iframe" />
 {/each}
 
-<svelte:window
-  on:load={() => generatePinnedTabsAndIfranes()}
-  on:load={() => newTabAndIframe()}
-  on:load={() => openTabAndIframe(4)}
-/>
+<svelte:window on:load={() => generatePinnedTabsAndIfranes()} />
