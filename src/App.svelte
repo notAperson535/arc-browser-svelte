@@ -207,4 +207,7 @@
   <iframe id={tabandiframe} title="iframe" />
 {/each}
 
-<svelte:window on:load={() => generatePinnedTabsAndIfranes()} />
+<svelte:window
+  on:load={() => generatePinnedTabsAndIfranes()}
+  on:load={() => openTabAndIframe(1)}
+/>
