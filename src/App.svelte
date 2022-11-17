@@ -6,8 +6,6 @@
   let newnextid = "";
   var tabOrder = new Array();
 
-  $: console.log(newnextid);
-
   let topsearchbarurl = "";
   let newtabsearchbarurl = "";
 
@@ -153,7 +151,7 @@
     <p>New Tab</p>
   </div>
 
-  {#each tabsandiframes as tabandiframe}
+  {#each tabsandiframes as tabandiframe, i (tabandiframe)}
     <div
       class="tab"
       id={"tab" + tabandiframe}
@@ -205,7 +203,7 @@
   <iframe id={pinnedtabandiframe} title="iframe" />
 {/each}
 
-{#each tabsandiframes as tabandiframe}
+{#each tabsandiframes as tabandiframe, i (tabandiframe)}
   <iframe id={tabandiframe} title="iframe" />
 {/each}
 
