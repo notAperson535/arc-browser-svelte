@@ -86,9 +86,8 @@
     var iframe = document.getElementById(id);
     iframe.classList.add("active");
     var url = __uv$config.decodeUrl(iframe.src);
-    document.querySelector("#urlbar input").value = url.substring(
-      url.indexOf("https://") + 0
-    );
+    topsearchbarurl = url;
+    newtabsearchbarurl = url;
     var tabs = document.querySelectorAll(".tab");
     tabs.forEach((elmnt) => (elmnt.className = "tab"));
     var pinnedtabs = document.querySelectorAll(".pinnedtab");
