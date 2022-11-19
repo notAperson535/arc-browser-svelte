@@ -31,7 +31,6 @@
           iframeurl = iframeurl.substring(iframeurl.indexOf("?q=") + 3);
         }
         topsearchbarurl = iframeurl;
-        newtabsearchbarurl = iframeurl;
       });
 
     function isUrl(val = "") {
@@ -85,9 +84,9 @@
     });
     var iframe = document.getElementById(id);
     iframe.classList.add("active");
-    var url = __uv$config.decodeUrl(iframe.src);
+    var url = iframe.src.substring(iframe.src.indexOf("/service/") + 9);
+    url = __uv$config.decodeUrl(url);
     topsearchbarurl = url;
-    newtabsearchbarurl = url;
     var tabs = document.querySelectorAll(".tab");
     tabs.forEach((elmnt) => (elmnt.className = "tab"));
     var pinnedtabs = document.querySelectorAll(".pinnedtab");
@@ -144,6 +143,7 @@
     on:click={() =>
       (document.querySelector("#commandpalette").style.display = "initial")}
     on:click={() => (newtabsearchbarurl = "")}
+    on:click={() => document.querySelector("#commandpalette input").select()}
     on:keypress={void 0}
   >
     <img alt="new tab" src="./img/newtab.png" />
