@@ -1,18 +1,19 @@
 {
   "dependencies": {
-    "bare-server-node": "github:tomphttp/bare-server-node",
-    "find-in-files": "^0.5.0",
-    "node-static": "^0.7.11",
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
+    "@tomphttp/bare-server-node": "^1.1.0",
+    "find-in-files": "^0.5.0",
     "gh-pages": "^4.0.0",
+    "node-static": "^0.7.11",
     "rollup": "^2.3.4",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.0",
     "rollup-plugin-svelte": "^7.0.0",
     "rollup-plugin-terser": "^7.0.0",
-    "svelte": "^3.0.0",
-    "sirv-cli": "^2.0.0"
+    "serve-static": "^1.15.0",
+    "sirv-cli": "^2.0.0",
+    "svelte": "^3.0.0"
   },
   "name": "arc-browser",
   "version": "1.0.0",
@@ -22,7 +23,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public --no-clear"
+    "oldstart": "sirv public --no-clear",
+    "start": "node ."
   },
   "keywords": [
     "proxy"

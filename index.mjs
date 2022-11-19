@@ -1,30 +1,52 @@
-import Server from 'bare-server-node';
-import http from 'http';
-import nodeStatic from 'node-static';
-import cluster from 'cluster';
-import os from 'os';
-const numCPUs = 6;
-if (cluster.isMaster) {
-	console.log("Running");
-	for (let i = 0; i < numCPUs; i++) {
-		cluster.fork();
+import createBareServer from '@tomphttp/bare-server-node';
+import { createServer } from 'node:http';
+import { fileURLToPath } from 'node:url';
+import serveStatic from 'serve-static';
+
+const httpServer = createServer();
+
+// Run the Bare server in the /bare/ namespace. This will prevent conflicts between the static files and the bare server.
+const bareServer = createBareServer('/bare/', {
+	logErrors: false,
+	localAddress: undefined,
+	maintainer: {
+		email: 'tomphttp@sys32.dev',
+		website: 'https://github.com/tomphttp/',
+	},
+});
+
+const serve = serveStatic(
+	fileURLToPath(new URL('./public/', import.meta.url)),
+	{
+		fallthrough: false,
 	}
-} else {
-	const bare = new Server('/bare/', '');
-	const serve = new nodeStatic.Server('public/');
+);
 
-	const server = http.createServer();
-	server.on('request', (request, response) => {
+httpServer.on('request', (req, res) => {
+	if (bareServer.shouldRoute(req)) {
+		bareServer.routeRequest(req, res);
+	} else {
+		serve(req, res, (err) => {
+			res.writeHead(err?.statusCode || 500, {
+				'Content-Type': 'text/plain',
+			});
+			res.end(err?.stack);
+		});
+	}
+});
 
-		if (bare.route_request(request, response)) {
-			//console.log(request.rawHeaders[request.rawHeaders.indexOf('userKey')+1])
-			return true;
-		}
-		serve.serve(request, response);
-	});
-	server.on('upgrade', (req, socket, head) => {
-		if (bare.route_upgrade(req, socket, head)) return;
+httpServer.on('upgrade', (req, socket, head) => {
+	if (bareServer.shouldRoute(req)) {
+		bareServer.routeUpgrade(req, socket, head);
+	} else {
 		socket.end();
-	});
-	server.listen(process.env.PORT || 8080, () => { console.log("Arc Browser running at http://localhost:8080") });
-}
+	}
+});
+
+httpServer.on('listening', () => {
+	console.log('Arc Browser running on port 8080');
+});
+
+httpServer.listen({
+	port: 8080,
+});
