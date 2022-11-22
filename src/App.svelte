@@ -25,7 +25,6 @@
         var iframeurl = iframe.src.substring(
           iframe.src.indexOf(__uv$config.prefix) + __uv$config.prefix.length
         );
-        var iframeurl = iframe.src.slice(__uv$config.prefix.length);
         iframeurl = __uv$config.decodeUrl(iframeurl);
         getIframeFavicon(iframeurl);
         if (iframeurl.includes("?q=")) {
