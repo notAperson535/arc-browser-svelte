@@ -22,9 +22,10 @@
           url = "https://" + url;
         iframe.style.display = "block";
         iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
-        var iframeurl = iframe.src.substring(
-          iframe.src.indexOf("/service/") + 9
-        );
+        // var iframeurl = iframe.src.substring(
+        //   iframe.src.indexOf("/service/") + 9
+        // );
+        var iframeurl = iframe.src.slice(__uv$config.prefix.length);
         iframeurl = __uv$config.decodeUrl(iframeurl);
         getIframeFavicon(iframeurl);
         if (iframeurl.includes("?q=")) {
@@ -84,8 +85,12 @@
     });
     var iframe = document.getElementById(id);
     iframe.classList.add("active");
-    var url = iframe.src.substring(iframe.src.indexOf("/service/") + 9);
+    var url = iframe.src.slice(__uv$config.prefix.length);
+    //var url = iframe.src.substring(iframe.src.indexOf("/service/") + 9);
     url = __uv$config.decodeUrl(url);
+    if (iframeurl.includes("?q=")) {
+      iframeurl = iframeurl.substring(iframeurl.indexOf("?q=") + 3);
+    }
     topsearchbarurl = url;
     var tabs = document.querySelectorAll(".tab");
     tabs.forEach((elmnt) => (elmnt.className = "tab"));
