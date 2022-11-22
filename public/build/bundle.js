@@ -538,10 +538,10 @@ var app = (function () {
     			attr_dev(img, "alt", "Tab Icon");
     			if (!src_url_equal(img.src, img_src_value = "img/tabfavicon.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "class", "tabfavicon");
-    			add_location(img, file, 138, 8, 4407);
+    			add_location(img, file, 138, 8, 4383);
     			attr_dev(div, "id", div_id_value = "tab" + /*pinnedtabandiframe*/ ctx[31]);
     			attr_dev(div, "class", "pinnedtab");
-    			add_location(div, file, 132, 6, 4229);
+    			add_location(div, file, 132, 6, 4205);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -620,16 +620,16 @@ var app = (function () {
     			attr_dev(img0, "alt", "Tab Icon");
     			if (!src_url_equal(img0.src, img0_src_value = "img/tabfavicon.png")) attr_dev(img0, "src", img0_src_value);
     			attr_dev(img0, "class", "tabfavicon");
-    			add_location(img0, file, 164, 6, 5108);
-    			add_location(p, file, 165, 6, 5181);
+    			add_location(img0, file, 164, 6, 5084);
+    			add_location(p, file, 165, 6, 5157);
     			attr_dev(img1, "alt", "Close tab");
     			if (!src_url_equal(img1.src, img1_src_value = "img/closetab.png")) attr_dev(img1, "src", img1_src_value);
     			attr_dev(img1, "class", "invert tabclose");
     			attr_dev(img1, "listener", "true");
-    			add_location(img1, file, 166, 6, 5198);
+    			add_location(img1, file, 166, 6, 5174);
     			attr_dev(div, "class", "tab");
     			attr_dev(div, "id", div_id_value = "tab" + /*tabandiframe*/ ctx[28]);
-    			add_location(div, file, 158, 4, 4960);
+    			add_location(div, file, 158, 4, 4936);
     			this.first = div;
     		},
     		m: function mount(target, anchor) {
@@ -687,7 +687,7 @@ var app = (function () {
     			iframe = element("iframe");
     			attr_dev(iframe, "id", iframe_id_value = /*pinnedtabandiframe*/ ctx[31]);
     			attr_dev(iframe, "title", "iframe");
-    			add_location(iframe, file, 206, 2, 6199);
+    			add_location(iframe, file, 206, 2, 6175);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, iframe, anchor);
@@ -725,7 +725,7 @@ var app = (function () {
     			iframe = element("iframe");
     			attr_dev(iframe, "id", iframe_id_value = /*tabandiframe*/ ctx[28]);
     			attr_dev(iframe, "title", "iframe");
-    			add_location(iframe, file, 210, 2, 6317);
+    			add_location(iframe, file, 210, 2, 6293);
     			this.first = iframe;
     		},
     		m: function mount(target, anchor) {
@@ -879,36 +879,36 @@ var app = (function () {
 
     			each3_anchor = empty();
     			attr_dev(input0, "placeholder", "Search or type a URL");
-    			add_location(input0, file, 127, 4, 4059);
+    			add_location(input0, file, 127, 4, 4035);
     			attr_dev(form0, "id", "urlbar");
-    			add_location(form0, file, 126, 2, 3983);
+    			add_location(form0, file, 126, 2, 3959);
     			attr_dev(div0, "id", "pinnedtabs");
-    			add_location(div0, file, 130, 2, 4146);
+    			add_location(div0, file, 130, 2, 4122);
     			attr_dev(div1, "id", "sidebarspacer");
-    			add_location(div1, file, 143, 2, 4511);
+    			add_location(div1, file, 143, 2, 4487);
     			attr_dev(img0, "alt", "new tab");
     			if (!src_url_equal(img0.src, img0_src_value = "./img/newtab.png")) attr_dev(img0, "src", img0_src_value);
-    			add_location(img0, file, 153, 4, 4823);
-    			add_location(p, file, 154, 4, 4872);
+    			add_location(img0, file, 153, 4, 4799);
+    			add_location(p, file, 154, 4, 4848);
     			attr_dev(div2, "id", "newtabbutton");
-    			add_location(div2, file, 145, 2, 4541);
+    			add_location(div2, file, 145, 2, 4517);
     			attr_dev(div3, "id", "sidebar");
-    			add_location(div3, file, 125, 0, 3962);
+    			add_location(div3, file, 125, 0, 3938);
     			attr_dev(div4, "id", "newtaburlbarbg");
-    			add_location(div4, file, 179, 2, 5465);
+    			add_location(div4, file, 179, 2, 5441);
     			if (!src_url_equal(img1.src, img1_src_value = "img/search.png")) attr_dev(img1, "src", img1_src_value);
     			attr_dev(img1, "alt", "Search");
-    			add_location(img1, file, 194, 6, 5934);
+    			add_location(img1, file, 194, 6, 5910);
     			attr_dev(input1, "placeholder", "Search or Enter URL...");
-    			add_location(input1, file, 195, 6, 5982);
+    			add_location(input1, file, 195, 6, 5958);
     			attr_dev(div5, "id", "newtaburlbardiv");
-    			add_location(div5, file, 193, 4, 5901);
+    			add_location(div5, file, 193, 4, 5877);
     			attr_dev(form1, "id", "newtaburlbar");
-    			add_location(form1, file, 185, 2, 5620);
+    			add_location(form1, file, 185, 2, 5596);
     			attr_dev(div6, "id", "commandpalette");
-    			add_location(div6, file, 178, 0, 5437);
+    			add_location(div6, file, 178, 0, 5413);
     			attr_dev(div7, "id", "thingbelowtheiframe");
-    			add_location(div7, file, 203, 0, 6112);
+    			add_location(div7, file, 203, 0, 6088);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1177,8 +1177,8 @@ var app = (function () {
     		//var url = iframe.src.substring(iframe.src.indexOf("/service/") + 9);
     		url = __uv$config.decodeUrl(url);
 
-    		if (iframeurl.includes("?q=")) {
-    			iframeurl = iframeurl.substring(iframeurl.indexOf("?q=") + 3);
+    		if (url.includes("?q=")) {
+    			url = url.substring(url.indexOf("?q=") + 3);
     		}
 
     		$$invalidate(1, topsearchbarurl = url);
