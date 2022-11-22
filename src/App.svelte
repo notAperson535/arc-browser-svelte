@@ -22,9 +22,9 @@
           url = "https://" + url;
         iframe.style.display = "block";
         iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
-        // var iframeurl = iframe.src.substring(
-        //   iframe.src.indexOf("/service/") + 9
-        // );
+        var iframeurl = iframe.src.substring(
+          iframe.src.indexOf(__uv$config.prefix) + __uv$config.prefix.length
+        );
         var iframeurl = iframe.src.slice(__uv$config.prefix.length);
         iframeurl = __uv$config.decodeUrl(iframeurl);
         getIframeFavicon(iframeurl);
@@ -85,8 +85,9 @@
     });
     var iframe = document.getElementById(id);
     iframe.classList.add("active");
-    var url = iframe.src.slice(__uv$config.prefix.length);
-    //var url = iframe.src.substring(iframe.src.indexOf("/service/") + 9);
+    var url = iframe.src.substring(
+      iframe.src.indexOf(__uv$config.prefix) + __uv$config.prefix.length
+    );
     url = __uv$config.decodeUrl(url);
     if (url.includes("?q=")) {
       url = url.substring(url.indexOf("?q=") + 3);
