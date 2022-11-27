@@ -1,0 +1,43 @@
+:root {
+    --intense-blur: rgba(0, 0, 0, 0.8);
+    --lighter-blur: rgba(0, 0, 0, 0.5);
+}
+
+html {
+    background-image: url(https://raw.githubusercontent.com/notAperson535/Win11-HTML/main/img/backgrounddark.jpg);
+}
+
+.pinnedtab,
+#urlbar>input {
+    background: rgba(45, 47, 25, 0.3);
+}
+
+.pinnedtab.active {
+    background: rgb(45, 47, 25);
+}
+
+.tab {
+    color: white;
+}
+
+.tab.active {
+    -webkit-box-shadow: 3px 3px 5px -4px rgba(136, 136, 136, 0.71);
+    box-shadow: 3px 3px 5px -4px rgba(136, 136, 136, 0.71);
+}
+
+.tabclose {
+    filter: invert(1);
+}
+
+input {
+    color: white;
+}
+
+#newtaburlbardiv>img {
+    filter: invert(1);
+}
+
+#thingbelowtheiframe {
+    -webkit-box-shadow: 3px 3px 5px -4px rgba(136, 136, 136, 0.71);
+    box-shadow: 3px 3px 5px -4px rgba(136, 136, 136, 0.71);
+}

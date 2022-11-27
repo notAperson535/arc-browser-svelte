@@ -121,7 +121,16 @@
   function generatePinnedTabsAndIfranes() {
     pinnedtabsandiframes = [1, 2, 3];
   }
+
+  function lightMode() {}
+
+  function darkMode() {}
+
+  let dark = false;
+  const toggleTheme = () => (dark = dark === false);
 </script>
+
+<button on:click={() => toggleTheme()} />
 
 <div id="sidebar">
   <form on:submit|preventDefault={() => go(topsearchbarurl)} id="urlbar">
@@ -215,3 +224,9 @@
   on:load={() => generatePinnedTabsAndIfranes()}
   on:load={() => openTabAndIframe(1)}
 />
+
+<svelte:head>
+  {#if dark}
+    <link rel="stylesheet" href="darkvars.css" />
+  {/if}
+</svelte:head>
