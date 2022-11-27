@@ -104,9 +104,8 @@ body {
 }
 
 .tab:hover,
-#newtabbutton:hover,
-.tab.active {
-    background: var(--lighter-blur);
+#newtabbutton:hover {
+    background: rgba(191, 195, 222, 0.5);
     -webkit-box-shadow: 2px 2px 5px -4px rgba(119, 119, 119, 0.71);
     box-shadow: 2px 2px 5px -4px rgba(119, 119, 119, 0.71);
 }
@@ -203,6 +202,12 @@ body {
     margin-left: auto;
     width: 10px;
     margin-right: 10px;
+}
+
+.tab.active {
+    -webkit-box-shadow: 2px 2px 5px -4px rgba(119, 119, 119, 0.71);
+    box-shadow: 2px 2px 5px -4px rgba(119, 119, 119, 0.71);
+    background: var(--lighter-blur);
 }
 
 iframe,
