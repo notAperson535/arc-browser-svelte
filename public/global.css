@@ -32,7 +32,6 @@ body {
 
 * {
     font-family: Segoe UI Variable, Segoe UI;
-    transition: all 0.2s;
 }
 
 #sidebar {
@@ -80,6 +79,9 @@ body {
     justify-content: center;
 }
 
+.pinnedtab:hover,
+#urlbar>input:hover,
+#urlbar>input:focus,
 .pinnedtab.active {
     background: rgba(210, 208, 230, 0.6);
 }
@@ -101,11 +103,20 @@ body {
     color: #7d7c84;
 }
 
+.tab:hover,
+#newtabbutton:hover,
+.tab.active {
+    background: var(--lighter-blur);
+    -webkit-box-shadow: 2px 2px 5px -4px rgba(119, 119, 119, 0.71);
+    box-shadow: 2px 2px 5px -4px rgba(119, 119, 119, 0.71);
+}
+
 .tab,
 #newtabbutton {
     display: flex;
     align-items: center;
     width: calc(100% - 20px);
+    margin: 5px 0px;
     margin-left: 10px;
     height: 45px;
     border-radius: 10px;
@@ -162,7 +173,7 @@ body {
 
 #newtaburlbardiv {
     width: 100%;
-    height: 20%;
+    height: 15%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -194,12 +205,6 @@ body {
     margin-right: 10px;
 }
 
-.tab.active {
-    -webkit-box-shadow: 3px 3px 5px -4px rgba(119, 119, 119, 0.71);
-    box-shadow: 3px 3px 5px -4px rgba(119, 119, 119, 0.71);
-    background: var(--lighter-blur);
-}
-
 iframe,
 #thingbelowtheiframe {
     position: absolute;
@@ -215,7 +220,7 @@ iframe,
 
 #thingbelowtheiframe {
     display: initial;
-    -webkit-box-shadow: 3px 3px 5px -4px rgba(119, 119, 119, 0.71);
-    box-shadow: 3px 3px 5px -4px rgba(119, 119, 119, 0.71);
+    -webkit-box-shadow: 2px 2px 5px -4px rgba(119, 119, 119, 0.71);
+    box-shadow: 2px 2px 5px -4px rgba(119, 119, 119, 0.71);
     background: var(--lighter-blur);
 }

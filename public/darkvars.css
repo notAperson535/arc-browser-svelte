@@ -9,20 +9,26 @@ html {
 
 .pinnedtab,
 #urlbar>input {
-    background: rgba(45, 47, 25, 0.3);
+    background: rgba(58, 59, 79, 0.5);
 }
 
+.pinnedtab:hover,
+#urlbar>input:hover,
+#urlbar>input:focus,
 .pinnedtab.active {
-    background: rgb(45, 47, 25);
+    background: rgba(58, 59, 79, 0.7);
 }
 
 .tab {
     color: white;
 }
 
-.tab.active {
-    -webkit-box-shadow: 3px 3px 5px -4px rgba(136, 136, 136, 0.71);
-    box-shadow: 3px 3px 5px -4px rgba(136, 136, 136, 0.71);
+.tab.active,
+.tab:hover,
+#newtabbutton:hover {
+    -webkit-box-shadow: 2px 2px 5px -4px rgba(136, 136, 136, 0.71);
+    box-shadow: 2px 2px 5px -4px rgba(136, 136, 136, 0.71);
+    background: rgba(80, 80, 98, 1);
 }
 
 .tabclose {
@@ -38,6 +44,6 @@ input {
 }
 
 #thingbelowtheiframe {
-    -webkit-box-shadow: 3px 3px 5px -4px rgba(136, 136, 136, 0.71);
-    box-shadow: 3px 3px 5px -4px rgba(136, 136, 136, 0.71);
+    -webkit-box-shadow: 2px 2px 5px -4px rgba(136, 136, 136, 0.71);
+    box-shadow: 2px 2px 5px -4px rgba(136, 136, 136, 0.71);
 }

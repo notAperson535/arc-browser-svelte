@@ -1,4 +1,27 @@
 <script>
+  function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+    let expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+
+  function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(";");
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == " ") {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
   $: tabsandiframes = [];
   $: pinnedtabsandiframes = [];
 
@@ -122,15 +145,30 @@
     pinnedtabsandiframes = [1, 2, 3];
   }
 
-  function lightMode() {}
-
-  function darkMode() {}
-
   let dark = false;
-  const toggleTheme = () => (dark = dark === false);
+
+  let colorTheme = getCookie("colorTheme");
+  if (colorTheme == "light") {
+    lightMode();
+  } else if (colorTheme == "dark") {
+    darkMode();
+  } else {
+    darkMode();
+  }
+
+  function lightMode() {
+    setCookie("colorTheme", "light", "365");
+    dark = false;
+  }
+
+  function darkMode() {
+    setCookie("colorTheme", "dark", "365");
+    dark = true;
+  }
 </script>
 
-<button on:click={() => toggleTheme()} />
+<button on:click={() => lightMode()} />
+<button on:click={() => darkMode()} />
 
 <div id="sidebar">
   <form on:submit|preventDefault={() => go(topsearchbarurl)} id="urlbar">
