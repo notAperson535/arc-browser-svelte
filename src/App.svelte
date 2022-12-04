@@ -1,4 +1,7 @@
 <script>
+  import { clickOutside } from "./clickOutside.js";
+  import Contextmenu from "./contextmenu.svelte";
+
   function setCookie(cname, cvalue, exdays) {
     const d = new Date();
     d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
@@ -167,8 +170,7 @@
   }
 </script>
 
-<button on:click={() => lightMode()} />
-<button on:click={() => darkMode()} />
+<Contextmenu />
 
 <div id="sidebar">
   <form on:submit|preventDefault={() => go(topsearchbarurl)} id="urlbar">
@@ -193,9 +195,9 @@
   <div
     id="newtabbutton"
     on:click={() =>
-      (document.querySelector("#commandpalette").style.display = "initial")}
+      (document.querySelector("#newtaburlbarbg").style.display = "initial")}
     on:click={() => (newtabsearchbarurl = "")}
-    on:click={() => document.querySelector("#commandpalette input").select()}
+    on:click={() => document.querySelector("#newtaburlbarbg input").select()}
     on:keypress={void 0}
   >
     <img alt="new tab" src="./img/newtab.png" />
@@ -223,19 +225,16 @@
   {/each}
 </div>
 
-<div id="commandpalette">
-  <div
-    on:keypress={void 0}
-    on:click={() =>
-      (document.querySelector("#commandpalette").style.display = "none")}
-    id="newtaburlbarbg"
-  />
+<div id="newtaburlbarbg">
   <form
     on:submit|preventDefault={() => newTabAndIframe()}
     on:submit={() =>
-      (document.querySelector("#commandpalette").style.display = "none")}
+      (document.querySelector("#newtaburlbarbg").style.display = "none")}
     on:submit={() => openTabAndIframe(newnextid)}
     on:submit={() => go(newtabsearchbarurl)}
+    use:clickOutside
+    on:click_outside={() =>
+      (document.querySelector("#newtaburlbarbg").style.display = "none")}
     id="newtaburlbar"
   >
     <div id="newtaburlbardiv">
@@ -257,6 +256,27 @@
 {#each tabsandiframes as tabandiframe, i (tabandiframe)}
   <iframe id={tabandiframe} title="iframe" />
 {/each}
+
+<div
+  id="themeselector"
+  use:clickOutside
+  on:click_outside={() =>
+    (document.querySelector("#themeselector").style.display = "none")}
+>
+  <img
+    on:click={() => lightMode()}
+    on:keypress={() => void 0}
+    alt="light"
+    src="https://img.icons8.com/fluency-systems-regular/96/null/sun--v1.png"
+  />
+
+  <img
+    on:click={() => darkMode()}
+    on:keypress={() => void 0}
+    alt="dark"
+    src="https://img.icons8.com/fluency-systems-regular/96/null/bright-moon.png"
+  />
+</div>
 
 <svelte:window
   on:load={() => generatePinnedTabsAndIfranes()}

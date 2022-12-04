@@ -52,3 +52,11 @@ input {
     -webkit-box-shadow: 2px 2px 5px -4px rgba(136, 136, 136, 0.71);
     box-shadow: 2px 2px 5px -4px rgba(136, 136, 136, 0.71);
 }
+
+ul li button {
+    color: white !important;
+}
+
+#themeselector>img {
+    filter: invert(1);
+}
