@@ -272,6 +272,11 @@ iframe,
     backdrop-filter: blur(20px);
 }
 
+ul {
+    padding: 0;
+    margin: 0;
+}
+
 ul li {
     display: block;
     list-style-type: none;
